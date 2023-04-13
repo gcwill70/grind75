@@ -1,4 +1,4 @@
-from main import Solution
+from anagram.anagram import Solution
 
 
 def test1():

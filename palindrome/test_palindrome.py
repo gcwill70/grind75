@@ -1,4 +1,4 @@
-from main import Solution
+from palindrome.palindrome import Solution
 
 
 def test1():

@@ -1,4 +1,4 @@
-from main import Solution
+from flood_fill.flood_fill import Solution
 
 
 def test1():

@@ -1,4 +1,4 @@
-from main import Solution
+from binary_search.binary_search import Solution
 
 
 def test1():
