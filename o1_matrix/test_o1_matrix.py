@@ -15,27 +15,3 @@ def test2():
         [0, 1, 0],
         [1, 2, 1],
     ]
-
-
-def test3():
-    assert Solution().updateMatrix([[1, 1, 1], [1, 1, 1], [1, 1, 1]]) == [
-        [2, 1, 2],
-        [1, 2, 1],
-        [2, 1, 2],
-    ]
-
-
-def test4():
-    assert Solution().updateMatrix([[1, 1, 1], [1, 1, 1], [1, 1, 0]]) == [
-        [2, 1, 2],
-        [1, 2, 1],
-        [0, 1, 0],
-    ]
-
-
-def test5():
-    assert Solution().updateMatrix([[1, 1, 1], [1, 1, 1], [1, 1, 1]]) == [
-        [2, 1, 2],
-        [1, 2, 1],
-        [2, 1, 2],
-    ]
