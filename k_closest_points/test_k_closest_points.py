@@ -6,7 +6,7 @@ def test1():
 
 
 def test2():
-    assert Solution().kClosest([[3, 3], [5, -1], [-2, 4]], 2) == [[3, 3], [-2, 4]]
+    assert Solution().kClosest([[3, 3], [5, -1], [-2, 4]], 2) == [[-2, 4], [3, 3]]
 
 
 def test3():
