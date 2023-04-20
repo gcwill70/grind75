@@ -1,14 +1,25 @@
+from collections import deque
+
+
 class Solution:
     def coinChange(self, coins: list[int], amount: int) -> int:
-        return self.__coinChange(coins, amount, 0)
-
-    def __coinChange(self, coins, amount, count):
-        if amount < 0:
-            return -1
         if amount == 0:
-            return count
-        counts = []
-        for coin in coins:
-            counts.append(self.__coinChange(coins, amount - coin, count + 1))
-        retVal = min([count for count in counts if count > 0] or [-1])
-        return retVal
+            return 0
+        q = deque([amount])
+        visited = set()
+        depth = 0
+        while q:
+            # for each node at this level
+            for i in range(len(q)):
+                amt = q.popleft()
+                if amt < 0:
+                    continue
+                elif amt == 0:
+                    return depth
+                # add neighbors
+                elif amt not in visited:
+                    visited.add(amt)
+                    for c in coins:
+                        q.append(amt - c)
+            depth += 1
+        return -1
