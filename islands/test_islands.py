@@ -27,3 +27,7 @@ def test2():
         )
         == 3
     )
+
+
+def test3():
+    assert Solution().numIslands([["1", "0", "1", "1", "0", "1", "1"]]) == 3
