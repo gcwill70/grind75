@@ -1,4 +1,5 @@
-from balanced_binary_tree.balanced_binary_tree import Solution
+from utils.treenode import TreeNode
+from valid_bst.valid_bst import Solution
 
 
 def test1():
@@ -6,8 +7,16 @@ def test1():
 
 
 def test2():
-    assert Solution().isValidBST([2, 1, 3]) == True
+    assert Solution().isValidBST(TreeNode.fromList([2, 1, 3])) == True
 
 
 def test3():
-    assert Solution().isValidBST([5, 1, 4, None, None, 3, 6]) == False
+    assert (
+        Solution().isValidBST(TreeNode.fromList([5, 1, 4, None, None, 3, 6])) == False
+    )
+
+
+def test4():
+    assert (
+        Solution().isValidBST(TreeNode.fromList([5, 4, 6, None, None, 3, 7])) == False
+    )
