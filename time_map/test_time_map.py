@@ -9,3 +9,14 @@ def test1():
     map.set("foo", "bar2", 4)
     assert map.get("foo", 4) == "bar2"
     assert map.get("foo", 5) == "bar2"
+
+
+def test2():
+    map = TimeMap()
+    map.set("love", "high", 10)
+    map.set("love", "low", 20)
+    assert map.get("love", 5) == ""
+    assert map.get("love", 10) == "high"
+    assert map.get("love", 15) == "high"
+    assert map.get("love", 20) == "low"
+    assert map.get("love", 25) == "low"
