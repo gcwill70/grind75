@@ -7,3 +7,7 @@ def test1():
 
 def test2():
     assert Solution().longestPalindrome("cbbd") in ["bb"]
+
+
+def test3():
+    assert Solution().longestPalindrome("aacabdkacaa") in ["aca"]
