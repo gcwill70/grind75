@@ -2,18 +2,22 @@ from accounts_merge import Solution
 
 
 def test1():
-    assert Solution().accountsMerge(
+    assert set(
+        Solution().accountsMerge(
+            [
+                ["John", "johnsmith@mail.com", "john_newyork@mail.com"],
+                ["John", "johnsmith@mail.com", "john00@mail.com"],
+                ["Mary", "mary@mail.com"],
+                ["John", "johnnybravo@mail.com"],
+            ]
+        )
+    ) == set(
         [
-            ["John", "johnsmith@mail.com", "john_newyork@mail.com"],
-            ["John", "johnsmith@mail.com", "john00@mail.com"],
+            ["John", "john00@mail.com", "john_newyork@mail.com", "johnsmith@mail.com"],
             ["Mary", "mary@mail.com"],
             ["John", "johnnybravo@mail.com"],
         ]
-    ) == [
-        ["John", "john00@mail.com", "john_newyork@mail.com", "johnsmith@mail.com"],
-        ["Mary", "mary@mail.com"],
-        ["John", "johnnybravo@mail.com"],
-    ]
+    )
 
 
 def test2():
