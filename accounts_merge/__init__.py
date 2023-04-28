@@ -15,6 +15,25 @@
 
 
 class Solution:
+    def __merge(self, db, name: str, items: set[str]):
+        if name not in db:
+            db[name] = [items]
+            return
+        # get indeces of colliding entries
+        indeces = []
+        for i in range(0, len(db[name])):
+            if db[name][i] & items:
+                indeces.append(i)
+        # merge colliding entries
+        eset = items
+        val = []
+        for i in range(0, len(db[name])):
+            if i in indeces:
+                eset |= db[name][i]
+            else:
+                val.append(db[name][i])
+        db[name] = val + [eset]
+
     def accountsMerge(self, accounts: list[list[str]]) -> list[list[str]]:
         # create initial database
         db: dict[str, list[set[str]]] = {accounts[0][0]: [set(accounts[0][1:])]}
@@ -22,20 +41,7 @@ class Solution:
         for i in range(1, len(accounts)):
             name = accounts[i][0]
             emails = set(accounts[i][1:])
-            if name in db:
-                # check for merge of existing email set
-                merged = False
-                for j in range(0, len(db[name])):  # for each set of emails
-                    if db[name][j] & emails:
-                        db[name][j] = db[name][j] | emails
-                        merged = True
-                        break
-                # if not merged, append to end
-                if not merged:
-                    db[name].append(emails)
-            else:
-                db[name] = [emails]
-        # merge existing entries
+            self.__merge(db, name, emails)
         # convert map to list format
         ret = []
         for name, sets in db.items():
