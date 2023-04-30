@@ -7,3 +7,12 @@ def test1():
 
 def test2():
     assert Solution().minDominoRotations([3, 5, 1, 2, 3], [3, 6, 3, 3, 4]) == -1
+
+
+def test3():
+    assert (
+        Solution().minDominoRotations(
+            [1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1]
+        )
+        == 0
+    )
